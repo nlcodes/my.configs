@@ -9,11 +9,9 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
 
-export GTK_IM_MODULE=fcitx5
-export QT_IM_MODULE=fcitx5
-export XMODIFIERS=@im=fcitx5
-
 neofetch
+
+source /home/user/bash_scripts/play_audio_function.sh
 
 set -o vi
 

@@ -22,6 +22,34 @@ set autoindent
 set incsearch
 set hlsearch
 
+" Yank to clipboard in visual mode using xclip (corrected)
+vnoremap y :<C-u>call YankToClipboard()<CR>
+
+function! YankToClipboard()
+
+  " Yank the selected text to the default register
+  normal! gvy
+  " Pass the text to xclip
+  call system('xclip -selection clipboard', @")
+endfunction
+
+" Paste from clipboard using xclip
+nnoremap p :let @"=system('xclip -selection clipboard -o')<CR>p
+vnoremap p :let @"=system('xclip -selection clipboard -o')<CR>p
+
+" Delete and copy to clipboard in visual mode
+vnoremap d :<C-u>call DeleteToClipboard()<CR>
+
+function! DeleteToClipboard()
+
+" Yank the selected text to the default register
+  normal! gvy
+  " Pass the text to xclip
+  call system('xclip -selection clipboard', @")
+  " Delete the selected text
+  normal! gvd
+endfunction
+
 " Line Number Colors
 
 " Change line numbers color
@@ -68,4 +96,3 @@ hi PreProc ctermfg=red
 hi Visual ctermbg=magenta ctermfg=white
 
 hi Search ctermbg=magenta ctermfg=white
-
