@@ -18,3 +18,7 @@ set -o vi
 export PATH="$HOME/bin:$PATH"
 
 export PATH="$HOME/bash_scripts:$PATH"
+
+export PATH="$HOME/lisp_scripts:$PATH"
+
+export PATH="$HOME/lisp_scripts/scheme/gambit:$PATH"

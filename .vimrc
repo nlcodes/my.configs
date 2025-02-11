@@ -1,7 +1,26 @@
 " Basic settings
 
-" Enable syntax highlighting
+" Status bar
+set laststatus=2
+
+call plug#begin('~/.vim/plugged')
+Plug 'frazrepo/vim-rainbow'
+call plug#end()
+
+" Enable syntax highlighting and filetype detection
+filetype plugin indent on
 syntax on
+
+" Enable rainbow parentheses
+
+" Global
+let g:rainbow_active = 1
+
+" Enable rainbow certain files
+" au FileType scheme call rainbow#load()
+
+" rainbow config
+let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'green', 'red', 'blue']
 
 " Show line numbers
 set number
